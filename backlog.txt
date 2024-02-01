@@ -1,0 +1,10 @@
+Dockerize et.
+
+Cloud'a yükle.
+
+Front-end kısmını hallet.
+
+LangChain implementasyonuna bak.
+Database ekle.
+Session ekle.
+Cookie ekle.

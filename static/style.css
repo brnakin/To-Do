@@ -1,0 +1,100 @@
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      .square-container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        /* Center contents */
+      }
+
+      .form-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      input[type='text'] {
+        flex: 1;
+        padding: 8px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        /* Space between input and button */
+      }
+
+      #submitBtn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 3px;
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #submitBtn:hover {
+        background-color: #2980b9;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .action-item {
+        margin-bottom: 8px;
+        padding: 5px;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+      }
+
+      .action-time {
+        margin-top: 10px;
+        font-style: italic;
+        color: #888;
+      }
+
+      .advice {
+        margin-top: 10px;
+        color: #555;
+      }
+
+      /* Updated styles for checkboxes and action items */
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        background-color: #f2f2f2;
+        /* Same background color */
+        padding: 8px;
+        border-radius: 3px;
+        margin-bottom: 8px;
+        /* Space between action items */
+      }
+
+      .checkbox {
+        margin-right: 8px;
+      }
+
+      .action-item {
+        flex: 1;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .action-item.checked {
+        text-decoration: line-through;
+        color: #888;
+        /* Change color for checked items */
+      }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Easy To-Do</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.png') }}" />
+  </head>
+  <body>
+    <div class="square-container">
+      <div class="form-container">
+        <form id="todoForm" method="post" action="/">
+          <input type="text" id="prompt" name="prompt" placeholder="Write your note." required />
+          <button id="submitBtn" type="submit">SEND</button>
+        </form>
+      </div>
+
+      {% if need_action != false %}
+        {% if action is not none %}
+          <ul id="actionList">
+            {% for action in actions %}
+              <div class="checkbox-container">
+                <li class="action-item" id="action{{ loop.index }}">{{ action }}</li>
+              </div>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% else %}
+        <div>There is no action!</div>
+      {% endif %}
+
+      {% if action_time != none %}
+        <div class="action-time">{{ action_time }}</div>
+      {% endif %}
+
+      {% if advice != none %}
+        <div class="advice">{{ advice }}</div> 
+      {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename = 'script.js') }}"></script>
+  </body>
+</html>
