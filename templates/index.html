@@ -3,7 +3,7 @@
   <head>
     <title>Easy To-Do</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}" />
-    <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'favicon.ico') }}" />
   </head>
   <body>
     <div class="square-container">
@@ -16,6 +16,7 @@
 
       {% if need_action != false %}
         {% if action is not none %}
+          <div>{{ actions|length }} to-dos found.</div>
           <ul id="actionList">
             {% for action in actions %}
               <div class="checkbox-container">
@@ -33,7 +34,7 @@
       {% endif %}
 
       {% if advice != none %}
-        <div class="advice">{{ advice }}</div> 
+        <div class="advice">{{ advice }}</div>
       {% endif %}
     </div>
 
