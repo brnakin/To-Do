@@ -1,10 +1,10 @@
 # AI-Powered To-Do App
 
-![App Logo](app_logo.png)
+![DALL-E](https://github.com/brnakin/To-Do/assets/83096271/f8533ff2-c3cd-4acc-8f00-93eec1c6c607)
 
 ## Overview
 
-The AI-Powered To-Do App is designed to simplify your task management process. It leverages artificial intelligence to automatically detect actions within your input and provides deadlines when specified. Additionally, it offers valuable advice to help you stay organized and productive.
+The AI-Powered To-Do App is designed to simplify your task management process. It uses Gemini AI API to automatically detect actions within your input and provides deadlines when specified. Additionally, it offers valuable advice to help you stay organized and productive.
 
 ## Features
 
@@ -28,7 +28,7 @@ To start using the AI-Powered To-Do App, follow these steps:
 
 5. **View Tasks**: The app will detect actions, extract deadlines, and provide advice. You can view your tasks with all the relevant information in an organized list.
 
-6. **Manage Tasks**: Use the app's interface to mark tasks as completed, update deadlines, or prioritize them based on the provided advice.
+6. **Manage Tasks**: Use the app's interface to mark tasks as completed.
 
 ## Customization
 
@@ -37,10 +37,6 @@ Feel free to customize the app to suit your specific needs. You can modify the a
 ## Issues and Feedback
 
 If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository. Your feedback is valuable and helps us enhance the app.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
