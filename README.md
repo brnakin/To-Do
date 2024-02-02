@@ -1,6 +1,7 @@
 # AI-Powered To-Do App
 
-![DALL-E](https://github.com/brnakin/To-Do/assets/83096271/f8533ff2-c3cd-4acc-8f00-93eec1c6c607)
+<img src="https://github.com/brnakin/To-Do/assets/83096271/f8533ff2-c3cd-4acc-8f00-93eec1c6c607" width="300" height="300" >
+
 
 ## Overview
 
