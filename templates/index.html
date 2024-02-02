@@ -17,7 +17,7 @@
       {% if need_action != false %}
         {% if action is not none %}
           {% if flag == true %}
-            <div class="action-required">{{ actions|length }} to-dos found.</div>
+            <div class="action-required">{{ actions|length }} to-dos found</div>
           {% endif %}
           <ul id="actionList">
             {% for action in actions %}
