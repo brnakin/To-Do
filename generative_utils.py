@@ -4,16 +4,22 @@ import os
 from config import GENERATION_CONFIG, SAFETY_SETTINGS, PROMPT_PARTS
 
 
-def setup_generative_model():
-    load_dotenv()
-    genai.configure(api_key=os.getenv("GENAI_API_KEY"))
+load_dotenv()  # Call it once, ideally at the start of your app
 
-    model = genai.GenerativeModel(
+
+def setup_generative_model():
+    api_key = os.getenv("GENAI_API_KEY")
+    if not api_key:
+        raise ValueError("GENAI_API_KEY is not set in the environment variables.")
+    genai.configure(api_key=api_key)
+    return genai.GenerativeModel(
         model_name="gemini-pro",
         generation_config=GENERATION_CONFIG,
         safety_settings=SAFETY_SETTINGS,
     )
-    return model
+
+
+model = setup_generative_model()
 
 
 def generate_content(model, prompt_parts):
@@ -24,30 +30,25 @@ def generate_content(model, prompt_parts):
 def process_response(response_text):
     lines = response_text.splitlines()
     data_dict = {}
+    flag = bool(lines)  # Directly assign based on the truthiness of lines
 
     for item in lines:
         key, value = item.split(": ", 1)
         data_dict[key] = value
 
-    need_action = data_dict["need_action"]
-    actions = data_dict["actions"]
-    action_time = data_dict["action_time"]
-    advice = data_dict["advice"]
+    # Simplify conversions with direct assignments
+    need_action = data_dict["need_action"].lower() == "yes"
+    actions = None if data_dict["actions"].lower() == "null" else data_dict["actions"]
+    action_time = (
+        None if data_dict["action_time"].lower() == "null" else data_dict["action_time"]
+    )
+    advice = None if data_dict["advice"].lower() == "null" else data_dict["advice"]
 
-    advice = None if advice.lower() == "null" else advice
-    action_time = None if action_time.lower() == "null" else action_time
-    actions = None if actions.lower() == "null" else actions
-    need_action = True if need_action.lower() == "yes" else False
+    # Streamline actions handling
+    if actions:
+        actions = [action.strip() for action in actions.split("|")]
 
-    if actions is not None:
-        if "|" in actions:
-            actions = [action.strip() for action in actions.split("|")]
-        else:
-            actions = [actions.strip()]
-    else:
-        pass
-
-    return need_action, actions, action_time, advice
+    return need_action, actions, action_time, advice, flag
 
 
 def util(prompt):
@@ -60,8 +61,8 @@ def util(prompt):
 
     response = generate_content(model, prompt_parts_extended)
 
-    need_action, actions, action_time, advice = process_response(response.text)
+    need_action, actions, action_time, advice, flag = process_response(response.text)
 
     prompt_parts_extended = prompt_parts_extended[: len(prompt_parts_extended) - 4]
 
-    return need_action, actions, action_time, advice
+    return need_action, actions, action_time, advice, flag
