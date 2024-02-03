@@ -1,18 +1,20 @@
-# Configuration settings for content generation
+# This is the configuration file for a content generation tool. It contains settings that
+# define how content is generated, as well as safety settings to ensure the content is
+# appropriate. Additionally, it includes prompts for a model designed to analyze and
+# provide structured outputs based on user-provided task descriptions.
+
+# Configuration settings for the content generation process
 GENERATION_CONFIG = {
-    "temperature": 0.05,
-    "top_p": 0.1,
-    "top_k": 1,
-    "max_output_tokens": 1024,
+    "temperature": 0.05,  # Controls the randomness of output generation
+    "top_p": 0.1,  # Filters the cumulative probability for token selection
+    "top_k": 1,  # Limits the number of highest probability tokens considered at each step
+    "max_output_tokens": 1024,  # Maximum number of tokens in the output
 }
 
-# Safety settings to filter harmful content
+# Safety settings for filtering out harmful content
 SAFETY_SETTINGS = [
     {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-    {
-        "category": "HARM_CATEGORY_HATE_SPEECH",
-        "threshold": "BLOCK_MEDIUM_AND_ABOVE",
-    },
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
     {
         "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
         "threshold": "BLOCK_MEDIUM_AND_ABOVE",
@@ -23,7 +25,10 @@ SAFETY_SETTINGS = [
     },
 ]
 
-# Prompt for model
+# Predefined prompts for the model to structure its understanding and output
+# of tasks based on user inputs. These prompts guide the model in identifying
+# actionable items, timelines, and providing succinct advice, all while considering
+# the language of input for appropriate response.
 PROMPT_PARTS = [
     'Task: Design a to-do list app that interprets user-provided text inputs, determining whether action is required and, if so, identifying action/s, their respective timelines, and offering succinct advice. When analyzing the input, evaluate whether there is a verb in the sentence.  For example, "buy" is a verb, but "buying" is not. Automatically detect the language that used in input and give response with that language for just action, action_time and advice parameters. For example, if the input is English the response should be English, if the input is Turkish the response should be Turkish. Do not code! Do not create more than one actions. Do not create sub action. Do not fragmentate of the action. Do not give more than one advice. Input Format: Each input will contain a task or activity. Information will include whether the task requires actions (needs_actions: Yes), the specific actions needed (actions), the time frame or deadline for these actions (actions_time), and a concise advice (advice). Input/Output Format: Input: [Task description] need_action: [Yes/No] actions: [Action or actions] action_time: [Time frame or deadline] advice: [One or two pieces of advice related to the task]',
     "input: Yarın köpek için mama siparişi ver",
