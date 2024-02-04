@@ -1,6 +1,9 @@
 # Use an Alpine-based Python image
 FROM python:3.10-alpine
 
+# Upgrade pip
+RUN pip install --upgrade pip
+
 # Set the working directory in the container
 WORKDIR /app
 
