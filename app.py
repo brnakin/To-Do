@@ -53,4 +53,4 @@ def redirect_to_root(invalid_path):
 
 # Check if this script is executed as the main program and run the app in debug mode.
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
