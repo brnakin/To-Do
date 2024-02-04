@@ -34,7 +34,7 @@ def index():
                 advice=advice,
                 flag=flag,
             )
-    except Exception as e:
+    except Exception:
         # In case of any exception, render an error page with a custom message.
         return render_template("error.html", error_message="Oops! Something Went Wrong")
 

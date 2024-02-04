@@ -31,12 +31,16 @@
         <div class="no-action">There is no action!</div>
       {% endif %}
 
-      {% if action_time != none %}
-        <div class="action-time">{{ action_time }}</div>
+      {% if need_action != false %}
+        {% if action_time != none %}
+          <div class="action-time">{{ action_time }}</div>
+        {% endif %}
       {% endif %}
 
-      {% if advice != none %}
-        <div class="advice">{{ advice }}</div>
+      {% if need_action != false %}
+        {% if advice != none %}
+          <div class="advice">{{ advice }}</div>
+        {% endif %}
       {% endif %}
     </div>
 
