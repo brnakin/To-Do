@@ -7,6 +7,9 @@
 
 The AI-Powered To-Do App is designed to simplify your task management process. It uses Gemini AI API to automatically detect actions within your input and provides deadlines when specified. Additionally, it offers valuable advice to help you stay organized and productive.
 
+Try it out!
+https://todo-app-76kloqmllq-uc.a.run.app/
+
 ## Features
 
 - **Action Detection**: The app uses natural language processing to identify actions within your input text. For example, if you write "Buy groceries," it will recognize "Buy" as the action.
